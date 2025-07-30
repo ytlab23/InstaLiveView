@@ -208,12 +208,77 @@ p {
     cursor: pointer;
 }
 
+/* Trust Badge Popup */
+.trust-badge-popup {
+    position: absolute;
+    bottom: -42px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    background: white;
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-width: 320px;
+    width: 90%;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1s forwards;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trust-badge-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.trust-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.trust-stars i {
+    color: #FFD700;
+    font-size: 1.1rem;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trust-line {
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.trust-line:last-child {
+    color: #666;
+    font-size: 0.8rem;
+}
+
 /* Hero Section */
 .hero {
-    padding: 180px 0 100px;
+    padding: 140px 20px 120px;
+    position: relative;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .hero::before {
@@ -231,32 +296,33 @@ p {
     position: relative;
     z-index: 2;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 40px;
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 600px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-weight: 700;
     line-height: 1.2;
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    margin: 0 auto 1.5rem;
+    color: #1a1a1a;
+    max-width: 100%;
 }
 
-.hero p {
+.hero .hero-description {
     font-size: 1.25rem;
-    color: #555;
-    margin-bottom: 2rem;
-    line-height: 1.7;
+    color: #4a4a4a;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    max-width: 800px;
 }
 
 .cta-buttons {
@@ -268,159 +334,41 @@ p {
 .trusted-by {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 2rem;
+    align-items: center;
+    gap: 10px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
 }
 
-.trusted-by span {
-    font-size: 0.9rem;
-    color: var(--gray-color);
+.trusted-by > span {
+    font-size: 1rem;
+    color: #4a4a4a;
+    font-weight: 500;
+    display: block;
+    text-align: center;
 }
 
 .trust-logos {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
 }
 
 .trust-logos i {
     color: #FFD700;
-    font-size: 1.1rem;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.phone-mockup {
-    width: 300px;
-    height: 600px;
-    background: white;
-    border-radius: 40px;
-    padding: 10px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-    border: 10px solid #111;
-}
-
-.phone-screen {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
-    border-radius: 30px;
-    position: relative;
-    overflow: hidden;
-}
-
-.phone-screen-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-.live-badge {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: var(--danger-color);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 2;
-}
-
-.live-badge::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    display: inline-block;
-    animation: pulse 1.5s infinite;
-}
-
-.viewer-count {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 2;
-    backdrop-filter: blur(5px);
-}
-
-.interaction-buttons {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    z-index: 2;
-}
-
-.interaction-buttons button {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1.2rem;
-    color: var(--dark-color);
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.interaction-buttons button:hover {
-    transform: translateY(-5px);
-    background: white;
-}
-
-.interaction-buttons .fa-heart {
-    color: var(--danger-color);
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--gray-color);
-    font-size: 0.9rem;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-}
-
-.scroll-indicator i {
-    margin-top: 5px;
-    font-size: 1.2rem;
+.trust-logos span {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    margin-left: 8px;
+    font-weight: 500;
 }
 
 /* Section Styles */
@@ -2263,11 +2211,30 @@ input:checked + .toggle-slider:before {
 footer {
     background-color: #111;
     color: white;
-    padding: 60px 0 30px;
+    padding: 40px 0;
+    font-size: 15px;
 }
 
 .footer-content {
-    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .footer-logo {
@@ -2285,9 +2252,90 @@ footer {
     color: transparent;
 }
 
-.footer-content p {
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links-column {
+    text-align: right;
+}
+
+.footer-links-column h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links-column h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
     color: #aaa;
-    margin-bottom: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.footer-links a::after {
+    content: '→';
+    margin-left: 5px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: -15px;
+}
+
+.footer-links a:hover::after {
+    opacity: 1;
+    right: -20px;
+}
+
+/* Footer Legal */
+.footer-legal {
+    margin-top: 20px;
+    padding-top: 20px;
+    max-width: 400px;
+}
+
+.footer-legal p {
+    color: #888;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.footer-legal .disclaimer {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .social-links {

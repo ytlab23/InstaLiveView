@@ -151,6 +151,88 @@
     position: relative;
 }
 
+/* Acquisition Notice */
+.acquisition-notice {
+    background: #f8f9ff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e4ff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+}
+
+.acquisition-content h3 {
+    color: #4a6bff;
+    margin-top: 0;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.acquisition-message {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+.acquisition-message p {
+    margin-bottom: 15px;
+}
+
+.acquisition-message .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #4a6bff, #8a2be2);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(74, 107, 255, 0.3);
+}
+
+.acquisition-message .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(74, 107, 255, 0.4);
+}
+
+.acquisition-message .btn i {
+    font-size: 0.9em;
+}
+
+/* Blurred Form */
+.blurred-form {
+    position: relative;
+    filter: blur(3px);
+    pointer-events: none;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.blurred-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    border-radius: 8px;
+}
+
 .contact-form h3 {
     font-size: 1.5rem;
     color: #2d3748;
